@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>For My Valentine ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    background: #ffeef2;
+  }
+
+  /* ФОН С СЕРДЕЧКАМИ */
+  body::before {
+    content: "❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+    position: absolute;
+    font-size: 40px;
+    color: rgba(255, 100, 120, 0.08);
+    width: 200%;
+    height: 200%;
+    line-height: 80px;
+    letter-spacing: 20px;
+    transform: rotate(-25deg);
+  }
+
+  .box {
+    position: relative;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 1;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #noBtn {
+    background: #ccc;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button id="yesBtn">Yes &lt;3</button>
+  <button id="noBtn">No :(</button>
+</div>
+
+<script>
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+
+  let scale = 1;
+
+  yesBtn.onclick = () => {
+    document.body.innerHTML = `
+      <h1 style="
+        color:#ff4d6d;
+        font-size:48px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        text-align:center;
+      ">
+        Навечно любимые, Д+Я :3
+      </h1>
+    `;
+  };
+
+  noBtn.onclick = () => {
+    scale += 0.4;
+    yesBtn.style.transform = `scale(${scale})`;
+
+    if (scale > 6) {
+      yesBtn.style.position = "fixed";
+      yesBtn.style.top = "0";
+      yesBtn.style.left = "0";
+      yesBtn.style.width = "100vw";
+      yesBtn.style.height = "100vh";
+      yesBtn.style.borderRadius = "0";
+      yesBtn.style.fontSize = "50px";
+    }
+  };
+</script>
+
+</body>
+</html>
